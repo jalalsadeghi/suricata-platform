@@ -21,18 +21,19 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
-  openvas:
-    image: greenbone/openvas
-    ports:
-      - "9392:9392"
-
   suricata:
     image: jasonish/suricata:latest
     container_name: suricata
     network_mode: host
     volumes:
       - ./suricata-config:/etc/suricata
+      - suricata-logs:/var/log/suricata
     command: -i eth0
+  # openvas:
+  #   image: greenbone/openvas
+  #   ports:
+  #     - "9392:9392"
 
 volumes:
   postgres_data:
+  suricata-logs:
