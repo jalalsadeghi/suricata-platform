@@ -7,3 +7,5 @@ coverage
 docker-compose.override.yml
 .vscode
 .idea
+suricata-logs/*
+!suricata-logs/.gitkeep

@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   elasticsearch:
     image: elasticsearch:8.13.0
@@ -17,7 +15,7 @@ services:
     container_name: logstash
     volumes:
       - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf
-      - ../suricata-config/logs:/var/log/suricata
+      - suricata-logs:/var/log/suricata
     ports:
       - "5044:5044"
     depends_on:
@@ -35,3 +33,4 @@ services:
 
 volumes:
   elasticsearch_data:
+  suricata-logs:
